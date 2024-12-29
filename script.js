@@ -12,7 +12,6 @@ document.getElementById("add-subject").addEventListener("click", function () {
 
     container.appendChild(newSubject);
 
-    // Add event listener to the remove button
     newSubject.querySelector(".remove-subject").addEventListener("click", function () {
         container.removeChild(newSubject);
     });
@@ -40,4 +39,20 @@ document.getElementById("calculate-gwa").addEventListener("click", function () {
     document.getElementById("result").innerText = totalUnits > 0 
         ? `Your GWA is: ${gwa}` 
         : "Please enter valid grades and units.";
+    
+    if (totalUnits > 0) {
+        if (gwa >= 1.25 && gwa <= 1.00) {
+            resultMessage = " - College Scholar";
+        }
+        else if (gwa >= 1.26 && gwa <= 1.50) {
+            resultMessage = " - President's Lister";
+        }
+        else if (gwa >= 1.51 && gwa <= 1.75) {
+            resultMessage = " - Dean's Lister";
+        }
+        else {
+            resultMessage = " - Bawi nalang next sem!";
+        }
+    }
+    document.getElementById("result").innerText += resultMessage;
 });
