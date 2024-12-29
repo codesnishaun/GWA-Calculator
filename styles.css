@@ -7,12 +7,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 20px;
 }
 
 h1 {
     color: #D66853;
     text-align: center;
     margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .container {
@@ -23,6 +25,7 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .container:hover {
@@ -34,6 +37,7 @@ h1 {
     gap: 10px;
     margin-bottom: 10px;
     align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 input {
@@ -59,6 +63,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 button:hover {
@@ -75,6 +80,27 @@ button:active {
     font-size: 18px;
     text-align: center;
     color: #D66853;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .remove-subject {
@@ -85,8 +111,34 @@ button:active {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .remove-subject:hover {
     background-color: #D66853;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .subject {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    input, button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    .remove-subject {
+        width: 100%;
+        padding: 10px;
+    }
 }
